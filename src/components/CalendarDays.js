@@ -61,7 +61,7 @@ const CalendarDays = ({ day }) => {
         {Appointments() ? (
           <>
             {Appointments()?.map((item, index) => (
-              <AppointmentsModalButton onClick={() => openModal(item)}>
+              <AppointmentsModalButton onClick={() => openModal(item)} key = {item?.id}>
                 {" "}
                 Appointment {index + 1} at {item.time}
               </AppointmentsModalButton>

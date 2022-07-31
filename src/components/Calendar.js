@@ -31,7 +31,7 @@ const Calendar = () => {
         <CalendarDaysContainer>
           {calendarData?.month?.days?.map((item) => (
             <>
-              <CalendarDays day={item.days + 1} />
+              <CalendarDays day={item.days + 1} key= {item.days} />
             </>
           ))}
         </CalendarDaysContainer>

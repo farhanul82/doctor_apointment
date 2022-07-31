@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { HeadersContainer, Select, ModalButton } from "./styles/Styles";
 import { useDispatch, useSelector } from "react-redux";
 import { filterByYear, getCalendarData, filterByMonth } from "../redux/action";
 import CreateAppointmentModal from "./modals/CreateAppointmentModal";
 import { useNavigate, useParams } from "react-router-dom";
-import { months } from "../data";
+import {  months } from "../data";
 
 const Header = () => {
   const param = useParams();
-
+ 
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
@@ -23,6 +23,11 @@ const Header = () => {
   const openModal = () => {
     setShowModal((prev) => !prev);
   };
+
+  useEffect(() => {
+    dispatch(filterByMonth(param.showMonth));
+  }, [])
+  
 
   return (
     <HeadersContainer>
